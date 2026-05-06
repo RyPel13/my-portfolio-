@@ -1,6 +1,7 @@
 package com.example.backend;
 
 import jakarta.persistence.*;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 /**
  * Represents a personal or professional goal of the developer.
@@ -17,6 +18,7 @@ public class Goal {
     private String timeline;
     private boolean achieved;
     
+    @JsonBackReference("developer-goals")
     @ManyToOne
     @JoinColumn(name = "developer_id")
     private Developer developer;

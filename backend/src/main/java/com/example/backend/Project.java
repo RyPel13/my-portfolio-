@@ -1,6 +1,7 @@
 package com.example.backend;
 
 import jakarta.persistence.*;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 /**
  * Represents a project in the developer's portfolio.
@@ -18,6 +19,7 @@ public class Project {
     private String language;
     private String category;
     
+    @JsonBackReference("developer-projects")
     @ManyToOne
     @JoinColumn(name = "developer_id")
     private Developer developer;

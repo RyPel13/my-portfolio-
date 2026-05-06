@@ -2,7 +2,7 @@ package com.example.backend;
 
 import jakarta.persistence.*;
 import java.util.List;
-
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 /**
  * Represents a personal interest of the developer.
@@ -18,6 +18,7 @@ public class Interest {
     private String summary;
     private String category;
     
+    @JsonBackReference("developer-interests") 
     @ManyToMany(mappedBy = "interests")
     private List<Developer> developers;
 

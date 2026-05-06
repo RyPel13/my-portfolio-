@@ -3,6 +3,8 @@ package com.example.backend;
 import jakarta.persistence.*;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 /**
  * Represents the developer behind the portfolio.
  * Connect to Controller
@@ -21,9 +23,11 @@ public class Developer implements Person {
     private String gitHub;
     private String introduction;
     
+    @JsonManagedReference("developer-projects")
     @OneToMany(mappedBy = "developer", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Project> projects;
     
+    @JsonManagedReference("developer-interests")
     @ManyToMany
     @JoinTable(
         name = "developer_interests",
@@ -32,6 +36,7 @@ public class Developer implements Person {
     )
     private List<Interest> interests;
     
+    @JsonManagedReference("developer-goals")
     @OneToMany(mappedBy = "developer", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Goal> goals;
 
