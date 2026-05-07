@@ -21,6 +21,7 @@ public class Developer implements Person {
     private String email;
     private String linkedIn;
     private String gitHub;
+    private String resumeLink;
     private String introduction;
     
     @JsonManagedReference("developer-projects")
@@ -68,6 +69,9 @@ public class Developer implements Person {
 
     @Override
     public String getGitHub() { return gitHub; }
+    
+    @Override
+ 	public String getResumeLink() { return resumeLink; }
 
     @Override
     public String getIntroduction() { return introduction; }
@@ -82,6 +86,7 @@ public class Developer implements Person {
     public void setEmail(String email) { this.email = email; }
     public void setLinkedIn(String linkedIn) { this.linkedIn = linkedIn; }
     public void setGitHub(String gitHub) { this.gitHub = gitHub; }
+    public void setResumeLink(String resumeLink) { this.resumeLink = resumeLink; }
     public void setIntroduction(String introduction) { this.introduction = introduction; }
     public void setProjects(List<Project> projects) { this.projects = projects; }
     public void setInterests(List<Interest> interests) { this.interests = interests; }

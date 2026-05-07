@@ -8,5 +8,6 @@ public interface Person {
     String getEmail();
     String getLinkedIn();
     String getGitHub();
+    String getResumeLink();
     String getIntroduction();
 }
